@@ -12,47 +12,6 @@ Principais Funcionalidades
 - Terminal web
 - Web
 
-#Instalação
-
-1. Faça o download do projeto
-
-```shell
-git clone https://github.com/jumpserver/koko.git
-```
-
-2. Compile a aplicação
-
-No diretório do projeto KoKo, construa a aplicação.
-```shell
-make
-```
-> Se a construção for bem-sucedida, uma pasta build será gerada automaticamente no diretório do projeto, contendo pacotes compactados para várias arquiteturas da versão atual. A versão padrão construída será [branch name]-[commit].
-> Como estamos usando go mod para gerenciamento de dependências, você pode configurar a variável de ambiente GOPROXY=https://goproxy.io para baixar algumas dependências através de um proxy.
-
-Uso (Exemplo para servidor Linux amd64)
-
-1. Copie o arquivo compactado para o servidor correspondente
-
-O pacote compactado padrão construído pelo comando make terá o seguinte nome:
-koko-[branch name]-[commit]-linux-amd64.tar.gz
-
-2. Descompacte o pacote construído
-```shell
-tar xzvf koko-[branch name]-[commit]-linux-amd64.tar.gz
-```
-
-3. Crie o arquivo de configuração config.yml. Para referência, veja o arquivo config_example.yml
-```shell
-touch config.yml
-```
-
-4. Execute o KoKo
-```shell
-cd koko-[branch name]-[commit]-linux-amd64
-
-./koko
-```
-
 Ambiente de Desenvolvimento
 
 1. Execute o backend do servidor
