@@ -57,9 +57,6 @@ type Config struct {
 
 	HiddenFields []string `mapstructure:"HIDDEN_FIELDS"`
 
-	// 仅控制是否缓存 sftp 的 token 连接
-	ConnectionTokenReusable bool `mapstructure:"CONNECTION_TOKEN_REUSABLE"`
-
 	RootPath          string
 	DataFolderPath    string
 	LogDirPath        string

@@ -13,7 +13,7 @@
 
     <ThemeConfig :visible.sync="dialogVisible" @setTheme="handleChangeTheme"></ThemeConfig>
     <el-dialog
-        title="提示"
+        title="Sugestão"
         :visible.sync="codeDialog"
         :close-on-press-escape="false"
         :close-on-click-modal="false"

@@ -11,7 +11,7 @@ Koko 使用 Golang 和 Vue 来实现，名字来自 Dota 英雄 [Kunkka](https:/
 - SSH
 - SFTP
 - web terminal
-- web文件管理
+- web 
 
 
 ## 安装
