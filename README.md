@@ -1,94 +1,85 @@
 
-# KoKo
+#KoKo
 
-Koko 是 JumpServer 连接字符协议的终端组件，支持 SSH、TELNET、MySQL、Redis 等协议。
+KoKo é um componente de terminal do JumpServer para conexão de protocolos de caracteres, suportando protocolos como SSH, TELNET, MySQL, Redis, entre outros.
 
-Koko 使用 Golang 和 Vue 来实现，名字来自 Dota 英雄 [Kunkka](https://www.dota2.com.cn/hero/kunkka)。
+KoKo é implementado usando Golang e Vue, e seu nome vem do herói Kunkka do jogo Dota.
 
-## 主要功能
-
+Principais Funcionalidades
 
 - SSH
 - SFTP
-- web terminal
-- web 
+- Terminal web
+- Web
 
+#Instalação
 
-## 安装
-
-1.下载项目
+1. Faça o download do projeto
 
 ```shell
 git clone https://github.com/jumpserver/koko.git
 ```
 
-2.编译应用
+2. Compile a aplicação
 
-在 koko 项目下构建应用.
+No diretório do projeto KoKo, construa a aplicação.
 ```shell
 make
 ```
-> 如果构建成功，会在项目下自动生成 build 文件夹，里面包含当前分支各种架构版本的压缩包。
-默认构建的 VERSION 为 [branch name]-[commit]。
-因为使用go mod进行依赖管理，可以设置环境变量 GOPROXY=https://goproxy.io 代理下载部分依赖包。
+> Se a construção for bem-sucedida, uma pasta build será gerada automaticamente no diretório do projeto, contendo pacotes compactados para várias arquiteturas da versão atual. A versão padrão construída será [branch name]-[commit].
+> Como estamos usando go mod para gerenciamento de dependências, você pode configurar a variável de ambiente GOPROXY=https://goproxy.io para baixar algumas dependências através de um proxy.
 
-## 使用 (以 Linux amd64 服务器为例)
+Uso (Exemplo para servidor Linux amd64)
 
-1.拷贝压缩包文件到对应的服务器
+1. Copie o arquivo compactado para o servidor correspondente
 
-```
-通过 make 构建默认的压缩包，文件名如下: 
+O pacote compactado padrão construído pelo comando make terá o seguinte nome:
 koko-[branch name]-[commit]-linux-amd64.tar.gz
-```
 
-2.解压编译的压缩包
+2. Descompacte o pacote construído
 ```shell
 tar xzvf koko-[branch name]-[commit]-linux-amd64.tar.gz
 ```
 
-3.创建配置文件config.yml，配置参数请参考[config_example.yml](https://github.com/jumpserver/koko/blob/master/config_example.yml)文件
+3. Crie o arquivo de configuração config.yml. Para referência, veja o arquivo config_example.yml
 ```shell
 touch config.yml
 ```
 
-4.运行koko
+4. Execute o KoKo
 ```shell
 cd koko-[branch name]-[commit]-linux-amd64
 
 ./koko
 ```
 
+Ambiente de Desenvolvimento
 
-## 开发环境
-
-1. 运行 server 后端
+1. Execute o backend do servidor
 
 ```shell
-
-$ cp config_example.yml config.yml  # 1. 准备配置文件
-$ vim config.yml  # 2. 修改配置文件, 编辑其中的地址 和 bootstrap key
+$ cp config_example.yml config.yml  # 1. Prepare o arquivo de configuração
+$ vim config.yml  # 2. Modifique o arquivo de configuração, edite o endereço e o bootstrap key
 CORE_HOST: http://127.0.0.1:8080
-BOOTSTRAP_TOKEN: PleaseChangeMe<改成和core一样的>
+BOOTSTRAP_TOKEN: PleaseChangeMe <mude para o mesmo valor do core>
 
-$ go run cmd/koko/koko.go # 3. 运行, 运行需要 go 如果没有，golang.org 下载安装
+$ go run cmd/koko/koko.go # 3. Execute, precisa do go instalado. Se não tiver, instale de golang.org
 ```
 
-
-2. 运行 ui 前端
-
+2. Execute o frontend da interface
 ```shell
 $ cd ui 
 $ yarn install
 $ npm run serve
 ```
 
-3. 测试
-在 luna 访问 linux 资产，复制 iframe 地址，端口修改为 9530 即可，也可以修改 nginx 将 /koko 映射到这里
+3. Teste
+No luna, acesse os ativos Linux, copie o endereço do iframe e modifique a porta para 9530. Também é possível modificar o nginx para mapear /koko para este local.
 
-## 构建docker镜像
-依赖 docker buildx 构建多平台镜像，需要安装 docker 19.03+ 版本，并开启 docker buildx 插件。
+Construção de Imagem Docker
+Dependendo de docker buildx para construção de imagens multi-plataforma, é necessário ter docker versão 19.03+ e habilitar o plugin docker buildx.
 
 ```shell
 make docker
 ```
-构建成功后，生成koko镜像
+Após a construção, a imagem KoKo será gerada.
