@@ -17,19 +17,15 @@ Ambiente de Desenvolvimento
 1. Execute o backend do servidor
 
 ```shell
-$ cp config_example.yml config.yml  # 1. Prepare o arquivo de configuração
-$ vim config.yml  # 2. Modifique o arquivo de configuração, edite o endereço e o bootstrap key
-CORE_HOST: http://127.0.0.1:8080
-BOOTSTRAP_TOKEN: PleaseChangeMe <mude para o mesmo valor do core>
-
-$ go run cmd/koko/koko.go # 3. Execute, precisa do go instalado. Se não tiver, instale de golang.org
+$ cd /opt/koko-v3.10.9/build/
+$ ./koko-linux-amd64
 ```
 
 2. Execute o frontend da interface
 ```shell
-$ cd ui 
-$ yarn install
+$ cd /opt/koko-v3.10.9/ui/
 $ npm run serve
+
 ```
 
 3. Teste
